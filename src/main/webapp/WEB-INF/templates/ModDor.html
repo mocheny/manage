@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改</title>
+</head>
+<body>
+
+<form th:action="@{/modDor}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="id" th:value="${employee.id}">
+    S2:<input type="text" name="S1" th:value="${employee.s1}">
+    <br>
+    S2:<input type="text" name="S2" th:value="${employee.s2}"><br>
+    <br>
+    S3:<input type="text" name="S3" th:value="${employee.s3}"><br>
+    <br>
+    S4:<input type="text" name="S4" th:value="${employee.s4}"><br>
+    <br>
+    <input type="submit" value="修改"><br>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>宿舍管理</title>
+</head>
+<body>
+
+
+<table border = "2">
+    <tr>
+        <td>宿舍号</td>
+        <td></td>
+    </tr>
+
+    <tr th:each="employee : ${employeeList}">
+        <td th:text="${employee.id}"></td>
+        <td><a th:href="@{'/dor/' + ${employee.id}}">查看详情</a></td>
+    </tr>
+
+
+</table>
+<a th:href="@{/}">返回主页</a>
+</table>
+</body>
+</html>

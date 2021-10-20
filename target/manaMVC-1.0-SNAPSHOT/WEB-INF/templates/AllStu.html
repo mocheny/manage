@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+</head>
+<body>
+
+<table border = "2">
+    <tr>
+        <td>学号</td>
+        <td>姓名</td>
+        <td></td>
+    </tr>
+
+    <tr th:each="employee : ${employeeList}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td><a th:href="@{'/stu/' + ${employee.id}}">查看详情</a></td>
+    </tr>
+
+
+</table>
+<form th:action="@{/addStu}" >
+    <input type = "submit" value="添加新学生">
+
+</form>
+<a th:href="@{/}">返回主页</a>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改</title>
+</head>
+<body>
+
+<form th:action="@{/modStu}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="id" th:value="${employee.id}">
+    Name:<input type="text" name="Name" th:value="${employee.name}">
+    <br>
+    Sex:<input type="text" name="Sex" th:value="${employee.sex}"><br>
+    <br>
+    College:<input type="text" name="College" th:value="${employee.college}"><br>
+    <br>
+    Dor:<input type="text" name="Dor" th:value="${employee.dor}"><br>
+    <br>
+    Phone:<input type="text" name="Phone" th:value="${employee.phone}"><br>
+    <br>
+    <input type="submit" value="修改"><br>
+</form>
+
+
+
+</body>
+</html>

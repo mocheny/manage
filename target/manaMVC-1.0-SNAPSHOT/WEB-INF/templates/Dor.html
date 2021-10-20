@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>宿舍管理</title>
+</head>
+<body>
+
+
+
+<table border = "1" id = "dataTable">
+
+    <tr th:each="employee : ${em}">
+        <td>宿舍号</td>
+        <td th:text="${employee.id}"></td>
+        <td></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>男/女</td>
+        <td th:text="${employee.sex}"></td>
+        <td></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>剩余空位</td>
+        <td th:text="${employee.num}"></td>
+        <td></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>学生1</td>
+        <td th:text="${employee.s1}"></td>
+        <td><a th:href="@{'/stu/' + ${employee.s1}}">查看详情</a></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>学生2</td>
+        <td th:text="${employee.s2}"></td>
+        <td><a th:href="@{'/stu/' + ${employee.s2}}">查看详情</a></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>学生3</td>
+        <td th:text="${employee.s3}"></td>
+        <td><a th:href="@{'/stu/' + ${employee.s3}}">查看详情</a></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>学生4</td>
+        <td th:text="${employee.s4}"></td>
+        <td><a th:href="@{'/stu/' + ${employee.s4}}">查看详情</a></td>
+    </tr>
+
+
+    <!--
+    <tr th:each="employee : ${em}">
+        <td><a th:href="@{'/modDor/' + ${employee.id}}">修改</a></td>
+    </tr>
+-->
+</table>
+<a th:href="@{/allDor}">返回</a>
+
+
+
+
+</body>
+</html>

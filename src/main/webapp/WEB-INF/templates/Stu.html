@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理</title>
+</head>
+<table border = "1" id = "dataTable">
+
+    <tr th:each="employee : ${em}">
+        <td>学号</td>
+        <td th:text="${employee.id}"></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>姓名</td>
+        <td th:text="${employee.name}"></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>性别</td>
+        <td th:text="${employee.sex}"></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>学院</td>
+        <td th:text="${employee.college}"></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>宿舍号</td>
+        <td th:text="${employee.dor}"></td>
+        <td><a th:href="@{'/dor/' + ${employee.dor}}">查看详情</a></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+        <td>联系方式</td>
+        <td th:text="${employee.phone}"></td>
+    </tr>
+
+
+    <tr th:each="employee : ${em}">
+        <td>操作</td>
+        <td><a class="deleteA" @click = "deleteEmployee"
+        th:href="@{'/allStu/' +${employee.id}}">删除</a></td>
+    </tr>
+
+    <tr th:each="employee : ${em}">
+    <td><a th:href="@{'/modStu/' + ${employee.id}}">修改</a></td>
+    </tr>
+
+</table>
+
+<a th:href="@{/allStu}">返回</a>
+
+<form id="delete_form" method="post">
+    <!-- HiddenHttpMethodFilter要求：必须传输_method请求参数，并且值为最终的请求方式 -->
+    <input type="hidden" name="_method" value="delete"/>
+</form>
+
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#dataTable",
+        methods:{
+    //event表示当前事件
+            deleteEmployee:function (event) {
+    //通过id获取表单标签
+                var delete_form = document.getElementById("delete_form");
+    //将触发事件的超链接的href属性为表单的action属性赋值
+                delete_form.action = event.target.href;
+    //提交表单
+                delete_form.submit();
+    //阻止超链接的默认跳转行为
+                event.preventDefault();
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
